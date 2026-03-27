@@ -43,6 +43,7 @@ def air_quality_summary(air_quality: ET.Element) -> str:
 
     for pollutant in ["co", "no2", "so2", "pm2_5", "pm10", "o3"]:
         if pollutant in qualities:
+            concentration = float(concentration)
             level = calc_aqi_level(qualities[pollutant], AQI_INTERVALS[pollutant])
             if  level > highest_level:
                 highest_level = level
